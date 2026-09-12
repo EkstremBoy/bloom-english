@@ -4,6 +4,7 @@ import { Check, RotateCcw, X } from "lucide-react";
 import {
   CARDS,
   CATEGORIES,
+  mediaUrl,
   pickDeck,
   type BoomCard,
   type CategoryId,
@@ -44,7 +45,7 @@ function Home() {
       const next = deck[i];
       if (!next) continue;
       const preload = new Image();
-      preload.src = next.image;
+      preload.src = mediaUrl(next.image);
     }
   }, [phase, index, deck]);
 
@@ -227,7 +228,7 @@ function HomePicker({
                 )}
               >
                 <span className="relative block h-28 overflow-hidden sm:h-32">
-                  <img src={cat.image} alt="" className="h-full w-full object-cover" />
+                  <img src={mediaUrl(cat.image)} alt="" className="h-full w-full object-cover" />
                   <span
                     className={cn(
                       "absolute right-2 top-2 flex size-7 items-center justify-center rounded-full border",
@@ -351,7 +352,7 @@ function PlayCard({
       </div>
 
       <div className="overflow-hidden rounded-[28px] border border-border bg-surface">
-        <WordPhoto src={card.image} word={card.word} />
+        <WordPhoto src={mediaUrl(card.image)} word={card.word} />
         <div className="space-y-5 p-5 sm:p-7">
           <p className="font-display text-2xl leading-snug tracking-tight sm:text-3xl">
             {card.before}{" "}

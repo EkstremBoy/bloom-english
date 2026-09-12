@@ -1,3 +1,11 @@
+export const MEDIA_BASE = import.meta.env.DEV
+  ? ""
+  : "https://cdn.jsdelivr.net/gh/EkstremBoy/bloom-english@main/public";
+
+export function mediaUrl(path: string) {
+  return `${MEDIA_BASE}${path}`;
+}
+
 export type CategoryId =
   | "animals"
   | "nature"
