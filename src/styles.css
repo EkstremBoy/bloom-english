@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f4efe6;
+  --color-surface: #fffaf3;
+  --color-fg: #1f1a16;
+  --color-muted: #6b635b;
+  --color-primary: #3d5c4e;
+  --color-primary-fg: #f4efe6;
+  --color-border: #d8d0c4;
+  --color-good: #2f6b4f;
+  --color-good-bg: #e4f0e8;
+  --color-bad: #9b3d32;
+  --color-bad-bg: #f6e4e0;
+  --color-ink-soft: #3a342e;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html,
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    min-height: 100%;
+  }
+
+  body {
+    background-image:
+      radial-gradient(1200px 500px at 10% -10%, color-mix(in oklab, var(--color-primary) 8%, transparent), transparent 60%),
+      radial-gradient(900px 400px at 100% 0%, color-mix(in oklab, var(--color-fg) 5%, transparent), transparent 55%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
